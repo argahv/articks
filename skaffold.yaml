@@ -1,0 +1,58 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+   manifests:
+    - ./infra/k8s/*
+build:
+  local:
+   push: false
+  artifacts:
+   - image: argahv/auth
+     context: auth
+     docker:
+      dockerfile: Dockerfile
+     sync:
+      manual:
+       - src: 'src/**/*.ts'
+         dest: .
+   - image: argahv/tickets
+     context: tickets
+     docker:
+      dockerfile: Dockerfile
+     sync:
+      manual:
+       - src: 'src/**/*.ts'
+         dest: .
+   - image: argahv/orders
+     context: orders
+     docker:
+      dockerfile: Dockerfile
+     sync:
+      manual:
+       - src: 'src/**/*.ts'
+         dest: .
+   - image: argahv/expiration
+     context: expiration
+     docker:
+      dockerfile: Dockerfile
+     sync:
+      manual:
+       - src: 'src/**/*.ts'
+         dest: .
+   - image: argahv/payments
+     context: payments
+     docker:
+      dockerfile: Dockerfile
+     sync:
+      manual:
+       - src: 'src/**/*.ts'
+         dest: .
+   - image: argahv/client
+     context: client
+     docker:
+      dockerfile: Dockerfile
+     sync:
+      manual:
+       - src: '**/*.js'
+         dest: .
