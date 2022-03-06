@@ -13,4 +13,6 @@ Microservice Architecture used with Docker and Kubernetes.
   <li><strong>Communication of data between services using NATS Streaming Server as event bus</strong></li>
   <li><strong>Comprehensive tests to ensure each service works as designed using Jest </strong></li>
   <li><strong>Real-time Payment System with Stripe</strong></li>
+  <li><strong>Github Actions for Continuous Integration/Continuous Deployment(CI/CD)</strong></li>
+  <li><strong>Used Test Driven Develpment Approach for some services</strong></li>
 </ul>
